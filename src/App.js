@@ -1,9 +1,23 @@
 import React from 'react';
 //import Hello from './SayHello';
-import Tweet from './Tweet'
+//import Tweet from './Tweet'
 import GuessTheNumber from './GuessTheNumber';
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import Hangman from './Hangman/Hangman';
+import './App.css'
 
+
+function App() {
+  return (
+    <div className='App'>
+      <Hangman />
+      <GuessTheNumber min={1} max={5} />
+    </div>
+  );
+}
+
+
+/*
 function App() {
   
   return (
@@ -16,6 +30,7 @@ function App() {
     </div>
   );
 }
+*/
 
 /*
 function App() {
