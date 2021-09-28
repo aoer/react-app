@@ -1,5 +1,5 @@
 function Keyboard({MainCharacterPressed}) {
-    let keyboardCharacters = 'abcdefghijklmnopqrstuvxyzäö';
+    let keyboardCharacters = 'abcdefghijklmnopqrstuvwxyzäö';
     const ButtonPressed = (button) => {
         MainCharacterPressed(button.target.id.split('-')[1]);
     }
