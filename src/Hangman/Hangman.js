@@ -1,35 +1,62 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ShowDrawing from './ShowDrawing'
 import ShowWord from './ShowWord';
 import Keyboard from './Keyboard';
 import './Hangman.css';
 
 function Hangman() {
-    let wordToGuess = 'muumitalo';
-    let [gameEnded, setGameEnded] = useState(false);
+    let wordToGuess = 'hattivatti';
+    let [gameLost, setGamelost] = useState(false);
+    let gameWon = false;
     let [wrongGuessCount, setWrongGuessCount] = useState(0);
+    let [wChars, setWrongChars] = useState([]);
     let [gChars, setGuessedChars] = useState([]);
     let [gameOverClassName, setGameOverClassName] = useState('game-over-invisible');
     let [gameWonClassName, setGameWonClassName] = useState('game-won-invisible');
-    
+    useEffect(() => {
+        UpdateButtonColors(gChars, wChars);
+        UpdateGameState();
+    });
+
+
     const CharacterPressed = (character) => {
         //console.log('Character pressed: ' + character);
-        if (gameEnded)
+        if (gameWon || gameLost)
             return
         
         CharFound(character);
         CheckWrongGuessCount();
     }
 
+    const UpdateButtonColors = (correctButtonsToUpdate, wrongButtonsToUpdate) => {
+        for (let i = 0; i < correctButtonsToUpdate.length; i++ ){
+            document.getElementById('button-' + correctButtonsToUpdate[i]).style.backgroundColor = 'green';
+        }
+        for (let i = 0; i < wrongButtonsToUpdate.length; i++ ){
+            document.getElementById('button-' + wrongButtonsToUpdate[i]).style.backgroundColor = 'red';
+        }
+    }
+
+    const UpdateGameState = () => {
+        if (gameWon) {
+            setGameWonClassName('game-won-visible');
+        }
+        if (gameLost) {
+            setGameOverClassName('game-over-visible');
+        }            
+    }
+
     const GameWon = () => {
-        setGameEnded(true);
-        setGameWonClassName('game-won-visible');
+        gameWon = true;
+    }
+
+    const GameLost = () => {
+        setGamelost(true);
     }
 
     const CheckWrongGuessCount = () => {
         if (wrongGuessCount >= 9){
-            setGameEnded(true);
-            setGameOverClassName('game-over-visible');
+            GameLost();
         }
     }
 
@@ -37,11 +64,17 @@ function Hangman() {
         if (CharAlreadyGuessed(character)) 
             return
         
-        if (wordToGuess.includes(character))
-            setGuessedChars(gChars.concat([character]));
-        else{
-            if (wrongGuessCount < 9)
+        if (wordToGuess.includes(character)) {
+            setGuessedChars(prevState => {
+                return prevState.concat([character]);
+            });
+        }else {
+            if (wrongGuessCount < 9){
                 setWrongGuessCount(++wrongGuessCount);
+                setWrongChars(prevState => {
+                    return prevState.concat([character]);
+                });
+            }
         }
     }
 
