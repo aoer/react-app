@@ -1,17 +1,31 @@
-import React from 'react';
+import { useState } from 'react';
 //import Hello from './SayHello';
 //import Tweet from './Tweet'
-import GuessTheNumber from './GuessTheNumber';
+//import GuessTheNumber from './GuessTheNumber';
+import PageHeader from './UI/PageHeader';
+import PageFooter from './UI/PageFooter';
+import ComponentSelection from './UI/ComponentSelection';
+import ComponentDisplay from './UI/ComponentDisplay';
 //import logo from './logo.svg';
-import Hangman from './Hangman/Hangman';
+//import Hangman from './Hangman/Hangman';
 import './App.css'
 
-
 function App() {
+  const [componentNameToDisplay, SetComponentNameToDisplay] = useState('guessTheNumber');
+
+  const UserSelected = (name) => {
+    //console.log(name);
+    SetComponentNameToDisplay(name);
+  }
+  
   return (
     <div className='App'>
-      <Hangman />
-      <GuessTheNumber min={1} max={5} />
+      <PageHeader />
+      <div className='main-content'>
+        <ComponentSelection names={['guessTheNumber', 'hangman']} UserSelectedCallBack={UserSelected} />
+        <ComponentDisplay name={componentNameToDisplay} />
+      </div>
+      <PageFooter />
     </div>
   );
 }

@@ -1,10 +1,66 @@
+:root {
+  --mainColor1: #666;
+  --mainColor2: #ccc;
+  --mainColor3: #f1f1f1;
+}
+
+@font-face {
+  font-family: webFont;
+  src: url(./UI/SansationLight.woff);
+}
+
+body {
+  font-family: webFont;
+}
+
 .App {
   min-height: 100vh;
+  /*
   background-color: aqua;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  */
+}
+
+header {
+  font-size: 35px;
+}
+
+header, footer {
+  background-color: var(--mainColor1);
+  padding: 30px;
+  text-align: center;
+  color: white;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.component-selection {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  background: var(--mainColor2);
+}
+
+.component-selection .selection {
+  font-size: large;
+  padding: 20px;
+}
+
+.component-selection .selection:hover {
+  background-color: var(--mainColor1);
+}
+
+.component-display {
+  width: 70%;
+  background: var(--mainColor3);
 }
 
 .GuessTheNumber {
@@ -62,6 +118,15 @@
   }
 }
 
+
+@media (max-width: 800px) {
+  .main-content {
+    flex-direction: column;
+  }
+  .component-selection, .component-display {
+    width: 100%;
+  }
+}
 
 /*
 
