@@ -2,6 +2,7 @@
   --mainColor1: #666;
   --mainColor2: #ccc;
   --mainColor3: #f1f1f1;
+  --fontColor: black;
 }
 
 @font-face {
@@ -24,20 +25,39 @@ body {
   */
 }
 
+.theme-dark {
+  --mainColor1: #232B32;
+  --mainColor2: #152028;
+  --mainColor3: #202945;
+  --fontColor: whitesmoke;
+} 
+
 header {
   font-size: 35px;
 }
 
 header, footer {
+  position: relative;
   background-color: var(--mainColor1);
   padding: 30px;
   text-align: center;
-  color: white;
+  color: var(--fontColor);
+}
+
+footer label {
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+}
+
+footer label p {
+  padding-bottom: 1vh;
 }
 
 .main-content {
   display: flex;
   flex-direction: row;
+  color: var(--fontColor);
 }
 
 .component-selection {
@@ -64,7 +84,7 @@ header, footer {
 }
 
 .GuessTheNumber {
-  background-color: white;
+  background-color: var(--mainColor2);
   border-radius: 10%;
   padding: 5vh;
   margin: 8vh;

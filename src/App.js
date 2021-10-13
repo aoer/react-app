@@ -12,20 +12,30 @@ import './App.css'
 
 function App() {
   const [componentNameToDisplay, SetComponentNameToDisplay] = useState('guessTheNumber');
+  const [theme, setTheme] = useState ('App');
 
   const UserSelected = (name) => {
     //console.log(name);
     SetComponentNameToDisplay(name);
   }
+
+  const ChangeTheme = (value) => {
+    if (value) {
+      setTheme(prevState => prevState = 'App theme-dark');
+      return;
+    }
+
+    setTheme(prevState => prevState = 'App');
+  }
   
   return (
-    <div className='App'>
+    <div className={theme}>
       <PageHeader />
       <div className='main-content'>
         <ComponentSelection names={['guessTheNumber', 'hangman']} UserSelectedCallBack={UserSelected} />
         <ComponentDisplay name={componentNameToDisplay} />
       </div>
-      <PageFooter />
+      <PageFooter ChangeThemeCallBack={ChangeTheme} />
     </div>
   );
 }

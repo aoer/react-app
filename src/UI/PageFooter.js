@@ -1,8 +1,14 @@
-function PageFooter() {
+import ThemeToggler from "./ThemeToggler/ThemeToggler";
+
+function PageFooter({ChangeThemeCallBack}) {
     return (
-        <header>
-            <p>TODO Footer..</p>
-        </header>
+        <footer>
+            <span>TODO Footer..</span>
+            <label>
+                <p>Change Theme:</p>
+                <ThemeToggler ChangeThemeCallBack={ChangeThemeCallBack} />
+            </label>
+        </footer>
     );
 }
 
