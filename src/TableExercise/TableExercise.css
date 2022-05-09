@@ -1,0 +1,5 @@
+#table-exercise th, #table-exercise td {
+    border: 1px solid var(--mainColor2);
+    text-align: left;
+    padding: 8px;
+}

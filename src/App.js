@@ -32,7 +32,7 @@ function App() {
     <div className={theme}>
       <PageHeader />
       <div className='main-content'>
-        <ComponentSelection names={['guessTheNumber', 'hangman']} UserSelectedCallBack={UserSelected} />
+        <ComponentSelection names={['guessTheNumber', 'hangman', 'TableExercise']} UserSelectedCallBack={UserSelected} />
         <ComponentDisplay name={componentNameToDisplay} />
       </div>
       <PageFooter ChangeThemeCallBack={ChangeTheme} />

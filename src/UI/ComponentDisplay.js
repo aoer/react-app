@@ -1,6 +1,7 @@
 import Hangman from "../Hangman/Hangman";
 //import GuessTheNumber from "../GuessTheNumber";
 import GuessTheNumberV2 from "../GuessTheNumber/GuessTheNumberV2";
+import TableExercise from "../TableExercise/TableExercise";
 
 function ComponentDisplay({name}) {
     const GetComponentToDisplay = () => {
@@ -9,6 +10,8 @@ function ComponentDisplay({name}) {
                 return <GuessTheNumberV2 min={1} max={10} />;
             case 'hangman':
                 return <Hangman />; 
+            case 'TableExercise':
+                return  <TableExercise />
             default:
                 return null;
         }
