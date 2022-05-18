@@ -11,7 +11,7 @@ function ComponentDisplay({name}) {
             case 'hangman':
                 return <Hangman />; 
             case 'TableExercise':
-                return  <TableExercise />
+                return  <TableExercise rowCount={5} columnCount={4} />
             default:
                 return null;
         }
