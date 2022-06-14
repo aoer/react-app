@@ -3,3 +3,15 @@
     text-align: left;
     padding: 8px;
 }
+
+#table-exercise table {
+    padding: 20px;
+}
+
+#table-exercise td {
+    cursor: pointer;
+}
+
+#table-exercise td.selected {
+    background-color: var(--mainColor2);
+}

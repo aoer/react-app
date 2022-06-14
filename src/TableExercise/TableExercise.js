@@ -5,19 +5,38 @@ function TableHeader({headerData}) {
     return headerData.map((hItem) => <th>{hItem}</th>);
 }
 
-function TableRows({rowData}) {
-    return rowData.map((rItem) => <tr><TableColumns columnData={rItem}/></tr>);
+function TableRows({rowData, id}) {
+    return rowData.map((rItem) => <tr><TableColumns columnData={rItem} id={id}/></tr>);
 }
 
-function TableColumns({columnData}) {
-    return columnData.map((cItem) => <td>{cItem}</td>);
+function TableColumns({columnData, id}) {
+    const ClearPreviousCellSelections = () => {
+        let cells = document.getElementById(id).getElementsByTagName('td');
+        console.log(cells);
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].className = '';
+        }
+    }
+    
+    const CellSelected = (event) => {
+        // Select/Deselect table cell
+        ClearPreviousCellSelections();
+        if(event.target.className === ''){
+            event.target.className = 'selected';
+        }else if (event.target.className === 'selected'){
+            event.target.className = '';
+        }
+        //console.log(event);
+    }
+
+    return columnData.map((cItem) => <td className='' onClick={(event) => CellSelected(event)} >{cItem}</td>);
 }
 
-function Table({tableData}) {
+function Table({tableData, id}) {
     return (
-        <table>
+        <table id={id}>
             <TableHeader headerData={tableData.getHeaderData()} />
-            <TableRows rowData={tableData.getRowData()} />
+            <TableRows rowData={tableData.getRowData()} id={id} />
         </table>
     );
 }
@@ -53,7 +72,8 @@ function TableExercise(props) {
     
     return (
         <div id='table-exercise'>
-            <Table tableData={tData} />
+            <Table tableData={tData} id='tb1' />
+            <Table tableData={tData} id='tb2' />
         </div>
     )
 }
