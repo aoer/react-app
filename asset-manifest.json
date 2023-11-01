@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-app/static/css/main.a12d3e2c.chunk.css",
+    "main.css": "/react-app/static/css/main.f25b8290.chunk.css",
     "main.js": "/react-app/static/js/main.2d2863d2.chunk.js",
     "main.js.map": "/react-app/static/js/main.2d2863d2.chunk.js.map",
     "runtime-main.js": "/react-app/static/js/runtime-main.5438b447.js",
@@ -10,14 +10,14 @@
     "static/js/3.d93937b3.chunk.js": "/react-app/static/js/3.d93937b3.chunk.js",
     "static/js/3.d93937b3.chunk.js.map": "/react-app/static/js/3.d93937b3.chunk.js.map",
     "index.html": "/react-app/index.html",
-    "static/css/main.a12d3e2c.chunk.css.map": "/react-app/static/css/main.a12d3e2c.chunk.css.map",
+    "static/css/main.f25b8290.chunk.css.map": "/react-app/static/css/main.f25b8290.chunk.css.map",
     "static/js/2.e78b0e58.chunk.js.LICENSE.txt": "/react-app/static/js/2.e78b0e58.chunk.js.LICENSE.txt",
     "static/media/App.css": "/react-app/static/media/SansationLight.7b41493a.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.5438b447.js",
     "static/js/2.e78b0e58.chunk.js",
-    "static/css/main.a12d3e2c.chunk.css",
+    "static/css/main.f25b8290.chunk.css",
     "static/js/main.2d2863d2.chunk.js"
   ]
 }
